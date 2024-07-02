@@ -1,3 +1,6 @@
+using Microsoft.Extensions.DependencyInjection;
+using System.Reflection.Metadata;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -5,7 +8,11 @@ builder.Services.AddControllers();
 
 builder.Services.AddEndpointsApiExplorer();
 // An extension method to add the nSwag open api document generation service from NSwag
-builder.Services.AddOpenApiDocument();
+builder.Services.AddOpenApiDocument((document, serviceProvider) => 
+{
+    document.DocumentName = "development_v1";
+    document.PostProcess = d => d.Info.Title = "Arcade APIs - Development";
+});
 
 var app = builder.Build();
 
