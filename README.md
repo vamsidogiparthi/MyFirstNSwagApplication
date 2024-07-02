@@ -6,4 +6,5 @@ Each branch of this repository will demonstrate a different aspect of the NSwag 
 
 Along with it the link to the medium article explain the use case of each branch will be provided.
 
-1. **main**: A default .NET 8 web application to demonstrate simple NSwag configuration/setup. 
+1. **main**: A default .NET 8 web application to demonstrate simple NSwag configuration/setup.
+2. **customizingnswagdocumentone**: Modified Program.cs with code to customize Open Api document name and title.
