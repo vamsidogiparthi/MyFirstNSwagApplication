@@ -4,10 +4,28 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+	<!-- Defines the build process to execute post build events defined below. -->
+	<RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent> 
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="NSwag.AspNetCore" Version="14.0.8" />
+    <PackageReference Include="NSwag.MSBuild" Version="14.0.8">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
   </ItemGroup>
+
+	<!-- Defines the Target for post build event and condition to be met inorder to be executed. -->
+	<Target Name="NSwag" AfterTargets="PostBuildEvent" Condition=" '$(Configuration)' == 'Debug' ">
+		<!-- A good practice to restore the project nuget packages to make sure the next step doesn't fail. -->
+		<Exec Command="dotnet tool restore"></Exec>
+		<!-- An exec command to generate swagger.json file as part of the build process.
+		EnvironmentVariables = allows you to set the project environment variable
+		WorkingDirectory = holds the directory path from which the command has to be executed
+		Command = holds the command to be executed when this exec block is executed during post build process
+		. -->
+		<Exec WorkingDirectory="$(ProjectDir)" EnvironmentVariables="ASPNETCORE_ENVIRONMENT=Development" Command="$(NSwagExe_Net80) run nswag.json" />
+	</Target>
 
 </Project>

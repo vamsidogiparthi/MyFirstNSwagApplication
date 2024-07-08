@@ -1,0 +1,51 @@
+{
+  "runtime": "Net80", // defines the runtime for the project ex: Net80 (.NET8), Net50 (.NET 5), NetCoreApp31 (.NET Core 3.1)
+  "defaultVariables": null, // list of variables which will be used in the current json document with its default values
+  "documentGenerator": {
+    "aspNetCoreToOpenApi": {
+      "project": "MyFirstNSwagApplication.csproj", // path to your project file
+      "defaultUrlTemplate": "api/{controller}/{id?}",
+      "configuration": null, // configuration for the project such as Debug, Release etc.
+      "noBuild": true, // if true, the project will not be built before the generation
+      "verbose": true,
+      "requireParametersWithoutDefault": false,
+      "apiGroupNames": null,
+      "defaultPropertyNameHandling": "Default",
+      "defaultReferenceTypeNullHandling": "Null",
+      "defaultDictionaryValueReferenceTypeNullHandling": "NotNull",
+      "defaultResponseReferenceTypeNullHandling": "NotNull",
+      "generateOriginalParameterNames": true,
+      "defaultEnumHandling": "String", // a setting to define how enums are handled in the document ex: String, Integer
+      "flattenInheritanceHierarchy": false,
+      "generateKnownTypes": true,
+      "generateEnumMappingDescription": false,
+      "generateXmlObjects": false,
+      "generateAbstractProperties": false,
+      "generateAbstractSchemas": true,
+      "ignoreObsoleteProperties": false,
+      "allowReferencesWithProperties": false,
+      "useXmlDocumentation": true,
+      "resolveExternalXmlDocumentation": true,
+      "excludedTypeNames": [],
+      "serviceSchemes": [],
+      "infoTitle": "Arcade API Service", // document title
+      "infoDescription": "OpenAPI Specification for ArcadeService", // some document description
+      "infoVersion": "1.0.0", // version of the document
+      "documentProcessorTypes": [],
+      "operationProcessorTypes": [],
+      "useDocumentProvider": true,
+      "documentName": "v1", // name of the document
+      "aspNetCoreEnvironment": null, // environment for the asp.net core application ex: ASP_NETCOREENVIRONMENT = Development, Production etc.
+      "createWebHostBuilderMethod": null,
+      "startupType": null,
+      "allowNullableBodyParameters": true,
+      "useHttpAttributeNameAsOperationId": false,
+      "output": "OpenAPI/swagger.json", // path to the output file (which is our swagger.json file)
+      "outputType": "OpenApi3", // type of Swagger Open API output you are looking for
+      "newLineBehavior": "Auto",
+      "assemblyPaths": [],
+      "referencePaths": [],
+      "useNuGetCache": false
+    }
+  }
+}
