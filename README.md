@@ -8,4 +8,3 @@ Along with it the link to the medium article explain the use case of each branch
 
 1. **main**: A default .NET 8 web application to demonstrate simple NSwag configuration/setup.
 2. **customizingnswagdocumentone**: Modified Program.cs with code to customize Open Api document name and title.
-2. **customizingnswagdocumentone**: Modified Program.cs with code to customize Swagger Ui hosting path as well as swagger json hosting Uri.
