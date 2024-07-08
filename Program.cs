@@ -22,14 +22,25 @@ if (app.Environment.IsDevelopment())
     // an web application middleware method to allow you
     // to use the nSwag open api generated swagger json document
     // default hosting local url: http://localhost:{portnumber}/swagger/v1/swagger.json
-    app.UseOpenApi();
+    app.UseOpenApi((settings) =>
+    {
+        settings.Path = $"/arcadeservice/swagger/swagger.json";
+        // if you have added a custom name above. You provide it here as well. Otherwise it will fail
+        settings.DocumentName = "development_v1";
+    });
     // an web application middleware method to allow you to use the
     // nSwag prebuilt swagger ui to interact with your apis from the browser
     // default hosting local url: http://localhost:{portnumber}/swagger/index.html
-    app.UseSwaggerUi(); 
+    app.UseSwaggerUi((settings) =>
+    {
+        settings.Path = "/arcadeservice/swagger";
+        settings.DocumentPath = "/arcadeservice/swagger/swagger.json";        
+    });
 }
 
 app.UseHttpsRedirection();
+
+app.UseRouting();
 
 app.UseAuthorization();
 
