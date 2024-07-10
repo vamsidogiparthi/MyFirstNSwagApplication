@@ -10,3 +10,4 @@ Along with it the link to the medium article explain the use case of each branch
 2. **customizingnswagdocumentone**: Modified Program.cs with code to customize Open Api document name and title.
 2. **customizingnswagdocumentone**: Modified Program.cs with code to customize Swagger Ui hosting path as well as swagger json hosting Uri.
 4. **nswagmsbuild1**: Install MSBuild package to .Net 8 application and create swagger.json during post build process.
+5. **nswagtypemapper**: Understand Type mapper implementation with a well know long integer rounding off issues.
