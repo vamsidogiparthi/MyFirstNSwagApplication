@@ -2,6 +2,7 @@ namespace MyFirstNSwagApplication
 {
     public class WeatherForecast
     {
+        public long Id { get; set; } // new variable to hold id value
         public DateOnly Date { get; set; }
 
         public int TemperatureC { get; set; }

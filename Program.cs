@@ -1,11 +1,24 @@
+using MyFirstNSwagApplication;
+using MyFirstNSwagApplication.TypeMappers;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllers();
+builder.Services.AddControllers()
+    .AddJsonOptions((options) =>
+    {
+        //registering custom json serializer for long type
+        options.JsonSerializerOptions.Converters.Add(new LongJsonSerializer());
+    })
+    ;
 
 builder.Services.AddEndpointsApiExplorer();
 // An extension method to add the nSwag open api document generation service from NSwag
-builder.Services.AddOpenApiDocument();
+builder.Services.AddOpenApiDocument((document, serviceProvider) =>
+{
+    // Add a custom type mapper to the schema settings
+    document.SchemaSettings.TypeMappers.Add(new LongTypeMapper()); 
+});
 
 var app = builder.Build();
 
